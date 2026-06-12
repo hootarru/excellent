@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Studies — Подготовка к экзамену 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0f14;
+  --bg2: #13161e;
+  --bg3: #1a1e2a;
+  --card: #1e2330;
+  --card-hover: #252b3b;
+  --border: #2e3448;
+  --accent: #7c6af7;
+  --accent2: #56cfb2;
+  --accent3: #f7a76a;
+  --danger: #f76a7a;
+  --text: #e8eaf6;
+  --text2: #9aa0bc;
+  --text3: #6b7280;
+  --glow: rgba(124,106,247,0.18);
+  --glow2: rgba(86,207,178,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;min-height:100vh;line-height:1.6}
+a{color:var(--accent);text-decoration:none}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:100;background:rgba(13,15,20,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 1.5rem}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;gap:1rem;flex-wrap:wrap}
+.logo{font-family:'Space Mono',monospace;font-size:0.85rem;color:var(--accent);letter-spacing:0.05em;white-space:nowrap}
+.countdown{display:flex;align-items:center;gap:0.5rem;font-family:'Space Mono',monospace;font-size:0.8rem;color:var(--text2)}
+.countdown span{background:var(--card);padding:2px 7px;border-radius:5px;border:1px solid var(--border);color:var(--accent2);font-size:0.85rem;min-width:28px;text-align:center}
+.progress-bar-wrap{display:flex;align-items:center;gap:0.5rem;font-size:0.78rem;color:var(--text3)}
+.progress-bar{width:100px;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;transition:width 0.5s ease}
+
+/* NAV */
+nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 1.5rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;gap:0;overflow-x:auto}
+.nav-btn{background:none;border:none;color:var(--text2);font-family:'Space Grotesk',sans-serif;font-size:0.9rem;padding:0.85rem 1.4rem;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap}
+.nav-btn:hover{color:var(--text)}
+.nav-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* SECTIONS */
+.section{display:none;max-width:1200px;margin:0 auto;padding:2rem 1.5rem}
+.section.active{display:block}
+.section-title{font-size:1.6rem;font-weight:700;margin-bottom:0.4rem}
+.section-sub{color:var(--text2);font-size:0.95rem;margin-bottom:2rem}
+
+/* TIMELINE */
+.timeline-scroll{overflow-x:auto;padding-bottom:1.5rem;cursor:grab;user-select:none}
+.timeline-scroll:active{cursor:grabbing}
+.timeline-track{display:flex;gap:0;align-items:flex-start;min-width:max-content;position:relative;padding:1rem 0 0}
+.timeline-line{position:absolute;top:28px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));opacity:0.3}
+.timeline-item{display:flex;flex-direction:column;align-items:center;width:200px;padding:0 12px;position:relative;cursor:pointer}
+.timeline-dot{width:14px;height:14px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);flex-shrink:0;transition:transform 0.2s,box-shadow 0.2s;z-index:1}
+.timeline-item:hover .timeline-dot{transform:scale(1.5);box-shadow:0 0 12px var(--accent)}
+.timeline-date{font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--accent3);margin-top:6px}
+.timeline-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;margin-top:0.6rem;width:100%;transition:all 0.25s;text-align:left}
+.timeline-item:hover .timeline-card{background:var(--card-hover);border-color:var(--accent);box-shadow:0 0 20px var(--glow)}
+.timeline-name{font-weight:600;font-size:0.9rem;color:var(--accent2);margin-bottom:0.3rem}
+.timeline-school{font-size:0.72rem;color:var(--text3);margin-bottom:0.5rem;font-style:italic}
+.timeline-idea{font-size:0.8rem;color:var(--text);margin-bottom:0.5rem;line-height:1.4}
+.timeline-tag{display:inline-block;background:rgba(124,106,247,0.12);border:1px solid rgba(124,106,247,0.25);color:var(--accent);font-size:0.68rem;border-radius:4px;padding:1px 6px;margin-bottom:0.5rem}
+.timeline-example{font-size:0.75rem;color:var(--text2);font-style:italic;border-top:1px solid var(--border);padding-top:0.5rem;margin-top:0.3rem}
+
+/* GLOSSARY */
+.theme-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.theme-tab{background:var(--card);border:1px solid var(--border);color:var(--text2);font-family:'Space Grotesk',sans-serif;font-size:0.82rem;padding:0.4rem 0.9rem;border-radius:20px;cursor:pointer;transition:all 0.2s}
+.theme-tab:hover{border-color:var(--accent);color:var(--text)}
+.theme-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+.search-wrap{position:relative;margin-bottom:1.5rem}
+.search-input{width:100%;background:var(--card);border:1px solid var(--border);color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:0.95rem;padding:0.7rem 1rem 0.7rem 2.8rem;border-radius:10px;outline:none;transition:border-color 0.2s}
+.search-input:focus{border-color:var(--accent)}
+.search-icon{position:absolute;left:0.9rem;top:50%;transform:translateY(-50%);color:var(--text3);pointer-events:none}
+
+.terms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1rem}
+.term-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;transition:all 0.25s;cursor:pointer}
+.term-card:hover{border-color:var(--accent);box-shadow:0 0 24px var(--glow)}
+.term-card.featured{border-color:rgba(86,207,178,0.35);background:linear-gradient(135deg,var(--card),rgba(86,207,178,0.04))}
+.term-card.featured:hover{border-color:var(--accent2);box-shadow:0 0 24px var(--glow2)}
+.term-header{display:flex;align-items:flex-start;justify-content:space-between;gap:0.5rem;margin-bottom:0.6rem}
+.term-ru{font-size:1rem;font-weight:600;color:var(--text)}
+.term-en{font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--accent);background:rgba(124,106,247,0.1);padding:2px 7px;border-radius:4px;white-space:nowrap}
+.term-category{font-size:0.68rem;color:var(--text3);border:1px solid var(--border);border-radius:3px;padding:1px 5px;white-space:nowrap}
+.term-short{font-size:0.85rem;color:var(--text2);margin-bottom:0.8rem;line-height:1.5}
+.term-expand{background:none;border:none;color:var(--accent);font-size:0.8rem;cursor:pointer;font-family:'Space Grotesk',sans-serif;padding:0;display:flex;align-items:center;gap:4px}
+.term-expand:hover{color:var(--accent2)}
+.term-body{display:none;margin-top:0.8rem;border-top:1px solid var(--border);padding-top:0.8rem}
+.term-body.open{display:block}
+.term-full{font-size:0.83rem;color:var(--text);margin-bottom:0.7rem;line-height:1.6}
+.term-example{background:rgba(124,106,247,0.07);border-left:3px solid var(--accent);padding:0.6rem 0.8rem;border-radius:0 6px 6px 0;font-size:0.8rem;margin-bottom:0.6rem}
+.term-example .ru{color:var(--text);margin-bottom:0.2rem}
+.term-example .en{color:var(--text3);font-style:italic;font-size:0.76rem}
+.term-analogy{background:rgba(86,207,178,0.07);border-left:3px solid var(--accent2);padding:0.5rem 0.8rem;border-radius:0 6px 6px 0;font-size:0.78rem;color:var(--text2)}
+.term-analogy b{color:var(--accent2)}
+.term-why{background:rgba(247,167,106,0.07);border-left:3px solid var(--accent3);padding:0.6rem 0.8rem;border-radius:0 6px 6px 0;font-size:0.78rem;color:var(--text2);margin-top:0.5rem}
+.term-why b{color:var(--accent3)}
+.term-topic{font-size:0.7rem;color:var(--text3);margin-top:0.5rem}
+.term-topic a{color:var(--text3);border-bottom:1px dotted var(--text3)}
+
+/* TRAINER */
+.trainer-modes{display:flex;gap:0.75rem;margin-bottom:2rem;flex-wrap:wrap}
+.mode-btn{background:var(--card);border:2px solid var(--border);color:var(--text2);font-family:'Space Grotesk',sans-serif;font-size:0.9rem;padding:0.6rem 1.2rem;border-radius:10px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:0.5rem}
+.mode-btn:hover{border-color:var(--accent);color:var(--text)}
+.mode-btn.active{border-color:var(--accent);background:rgba(124,106,247,0.12);color:var(--accent)}
+.trainer-content{display:none}
+.trainer-content.active{display:block}
+
+/* FLASHCARDS */
+.fc-progress{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;font-size:0.85rem;color:var(--text2)}
+.fc-stats{display:flex;gap:1rem}
+.fc-stat{display:flex;align-items:center;gap:0.3rem}
+.fc-stat .dot{width:8px;height:8px;border-radius:50%}
+.fc-scene{perspective:1000px;max-width:600px;margin:0 auto 1.5rem}
+.fc-card{width:100%;height:260px;position:relative;transform-style:preserve-3d;transition:transform 0.5s cubic-bezier(.4,0,.2,1);cursor:pointer}
+.fc-card.flipped{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;backface-visibility:hidden;border:1px solid var(--border)}
+.fc-front{background:linear-gradient(135deg,var(--card),var(--card-hover));border-color:var(--accent)}
+.fc-back{background:linear-gradient(135deg,var(--bg3),var(--card));transform:rotateY(180deg);border-color:var(--accent2)}
+.fc-hint{font-size:0.72rem;color:var(--text3);margin-bottom:0.8rem;letter-spacing:0.05em;text-transform:uppercase}
+.fc-term{font-size:1.4rem;font-weight:700;text-align:center;color:var(--text);margin-bottom:0.4rem}
+.fc-sub{font-family:'Space Mono',monospace;font-size:0.8rem;color:var(--accent);text-align:center}
+.fc-def{font-size:0.88rem;text-align:center;color:var(--text);line-height:1.5;margin-bottom:0.6rem}
+.fc-eg{font-size:0.78rem;color:var(--text2);text-align:center;font-style:italic}
+.fc-actions{display:flex;justify-content:center;gap:1rem;margin-bottom:1.5rem}
+.fc-btn{border:none;font-family:'Space Grotesk',sans-serif;font-size:0.9rem;padding:0.6rem 1.5rem;border-radius:10px;cursor:pointer;transition:all 0.2s;font-weight:600}
+.fc-btn.know{background:rgba(86,207,178,0.15);color:var(--accent2);border:2px solid var(--accent2)}
+.fc-btn.know:hover{background:var(--accent2);color:var(--bg)}
+.fc-btn.dontknow{background:rgba(247,106,122,0.15);color:var(--danger);border:2px solid var(--danger)}
+.fc-btn.dontknow:hover{background:var(--danger);color:#fff}
+.fc-btn.reset-fc{background:var(--card);color:var(--text2);border:1px solid var(--border)}
+.fc-btn.reset-fc:hover{border-color:var(--accent);color:var(--accent)}
+.fc-nav{display:flex;justify-content:center;align-items:center;gap:1rem;font-size:0.85rem;color:var(--text2)}
+.fc-nav button{background:var(--card);border:1px solid var(--border);color:var(--text2);font-size:1rem;width:36px;height:36px;border-radius:8px;cursor:pointer;transition:all 0.2s}
+.fc-nav button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* MATCH GAME */
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:900px;margin:0 auto}
+.match-col-title{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);margin-bottom:0.5rem;text-align:center}
+.match-col{display:flex;flex-direction:column;gap:0.5rem}
+.match-item{background:var(--card);border:2px solid var(--border);border-radius:10px;padding:0.7rem 1rem;cursor:pointer;font-size:0.85rem;transition:all 0.2s;text-align:center;min-height:52px;display:flex;align-items:center;justify-content:center}
+.match-item:hover{border-color:var(--accent);background:var(--card-hover)}
+.match-item.selected{border-color:var(--accent);background:rgba(124,106,247,0.15);color:var(--accent)}
+.match-item.matched{border-color:var(--accent2);background:rgba(86,207,178,0.1);color:var(--accent2);pointer-events:none}
+.match-item.wrong{border-color:var(--danger);background:rgba(247,106,122,0.1);animation:shake 0.3s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.match-score{text-align:center;font-size:0.9rem;color:var(--text2);margin-top:1rem}
+.match-actions{display:flex;justify-content:center;gap:1rem;margin-top:1rem}
+.btn-primary{background:var(--accent);border:none;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:0.9rem;padding:0.6rem 1.4rem;border-radius:10px;cursor:pointer;transition:all 0.2s;font-weight:600}
+.btn-primary:hover{background:#6a59e0;transform:translateY(-1px)}
+
+/* EXAMPLE MODE */
+.ex-card{max-width:600px;margin:0 auto;background:var(--card);border:1px solid var(--accent3);border-radius:18px;padding:2rem;text-align:center;min-height:200px}
+.ex-scenario{font-size:1rem;color:var(--text);line-height:1.6;margin-bottom:1.5rem}
+.ex-select{background:var(--bg2);border:2px solid var(--border);color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:0.95rem;padding:0.6rem 1rem;border-radius:10px;width:100%;cursor:pointer;outline:none;transition:border-color 0.2s;margin-bottom:1rem}
+.ex-select:focus{border-color:var(--accent)}
+.ex-feedback{padding:0.8rem 1rem;border-radius:10px;font-size:0.9rem;margin-top:0.5rem;display:none}
+.ex-feedback.correct{background:rgba(86,207,178,0.12);border:1px solid var(--accent2);color:var(--accent2)}
+.ex-feedback.wrong{background:rgba(247,106,122,0.12);border:1px solid var(--danger);color:var(--danger)}
+.ex-counter{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;font-size:0.85rem;color:var(--text2)}
+.ex-score{font-size:1.2rem;font-weight:700;color:var(--accent3)}
+.ex-actions{display:flex;justify-content:center;gap:1rem;margin-top:1rem}
+
+/* COMPLETED STATE */
+.completed-banner{background:linear-gradient(135deg,rgba(86,207,178,0.1),rgba(124,106,247,0.1));border:1px solid var(--accent2);border-radius:16px;padding:2rem;text-align:center;max-width:500px;margin:2rem auto}
+.completed-banner h3{font-size:1.4rem;color:var(--accent2);margin-bottom:0.5rem}
+.completed-banner p{color:var(--text2);font-size:0.9rem}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .terms-grid{grid-template-columns:1fr}
+  .match-grid{grid-template-columns:1fr}
+  .match-grid .match-col:last-child{display:none}
+  .fc-term{font-size:1.1rem}
+  .header-inner{height:auto;padding:0.5rem 0;gap:0.5rem}
+  .timeline-item{width:170px}
+}
+
+/* TOAST */
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--card);border:1px solid var(--accent2);color:var(--accent2);padding:0.7rem 1.2rem;border-radius:10px;font-size:0.85rem;z-index:999;animation:slideUp 0.3s ease;pointer-events:none}
+@keyframes slideUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.toast.hide{animation:fadeOut 0.3s ease forwards}
+@keyframes fadeOut{to{opacity:0;transform:translateY(10px)}}
+
+/* BADGES */
+.badge{display:inline-block;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;padding:2px 7px;border-radius:4px;margin-left:0.4rem}
+.badge.featured{background:rgba(86,207,178,0.15);color:var(--accent2);border:1px solid rgba(86,207,178,0.3)}
+
+/* MINI SCHEMA */
+.mini-schema{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:0.8rem;margin-top:0.6rem;font-size:0.8rem}
+.schema-step{display:flex;align-items:flex-start;gap:0.5rem;margin-bottom:0.4rem}
+.schema-step:last-child{margin-bottom:0}
+.schema-num{background:var(--accent);color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;flex-shrink:0;margin-top:1px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">📡 MEDIA STUDIES 2026</div>
+    <div class="countdown" id="countdown">
+      <span style="color:var(--text3);font-size:0.7rem">ДО ЭКЗАМЕНА:</span>
+      <span id="cd-d">—</span>д
+      <span id="cd-h">—</span>ч
+      <span id="cd-m">—</span>м
+      <span id="cd-s">—</span>с
+    </div>
+    <div class="progress-bar-wrap">
+      <span id="prog-text">0%</span>
+      <div class="progress-bar"><div class="progress-bar-fill" id="prog-fill" style="width:0%"></div></div>
+      <span style="color:var(--text3);font-size:0.7rem">освоено</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showSection('s1',this)">📅 Хронология</button>
+    <button class="nav-btn" onclick="showSection('s2',this)">📖 Словарь</button>
+    <button class="nav-btn" onclick="showSection('s3',this)">🎮 Тренажёр</button>
+  </div>
+</nav>
+
+<!-- SECTION 1: TIMELINE -->
+<div id="s1" class="section active">
+  <h2 class="section-title">Учёные и теории: кто придумал что</h2>
+  <p class="section-sub">От Просвещения до TikTok — краткая история медиамысли. Нажми на карточку, чтобы раскрыть подробности.</p>
+  <div class="timeline-scroll" id="timeline-scroll">
+    <div class="timeline-track" id="timeline-track">
+      <div class="timeline-line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: GLOSSARY -->
+<div id="s2" class="section">
+  <h2 class="section-title">Словарь терминов</h2>
+  <p class="section-sub">40 терминов — всё, что нужно для экзамена. Нажми «→ Подробнее» на карточке, чтобы увидеть полное определение, пример и аналогию.</p>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" type="text" id="search-input" placeholder="Поиск по термину...">
+  </div>
+  <div class="theme-tabs" id="theme-tabs">
+    <button class="theme-tab active" data-theme="all">Все 40</button>
+    <button class="theme-tab" data-theme="methodology">🔬 Методология</button>
+    <button class="theme-tab" data-theme="ethics">⚖️ Этика</button>
+    <button class="theme-tab" data-theme="media">📡 Теории медиа</button>
+    <button class="theme-tab" data-theme="philosophy">💡 Философия</button>
+  </div>
+  <div class="terms-grid" id="terms-grid"></div>
+</div>
+
+<!-- SECTION 3: TRAINER -->
+<div id="s3" class="section">
+  <h2 class="section-title">Тренажёр</h2>
+  <p class="section-sub">Три режима. Тренируйся, пока не запомнишь все 40 терминов.</p>
+  <div class="trainer-modes">
+    <button class="mode-btn active" onclick="setMode('flashcards',this)">🃏 Карточки</button>
+    <button class="mode-btn" onclick="setMode('match',this)">🎯 Сопоставление</button>
+    <button class="mode-btn" onclick="setMode('example',this)">💡 Пример → Термин</button>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="mode-flashcards" class="trainer-content active">
+    <div class="fc-progress">
+      <div class="fc-stats">
+        <div class="fc-stat"><div class="dot" style="background:var(--accent2)"></div><span id="fc-know">0</span> знаю</div>
+        <div class="fc-stat"><div class="dot" style="background:var(--danger)"></div><span id="fc-dontknow">0</span> учу</div>
+        <div class="fc-stat"><div class="dot" style="background:var(--text3)"></div><span id="fc-left">40</span> осталось</div>
+      </div>
+      <span id="fc-pos">1 / 40</span>
+    </div>
+    <div class="fc-scene">
+      <div class="fc-card" id="fc-card" onclick="flipCard()">
+        <div class="fc-face fc-front">
+          <div class="fc-hint">Термин — нажми, чтобы перевернуть</div>
+          <div class="fc-term" id="fc-term-front"></div>
+          <div class="fc-sub" id="fc-en-front"></div>
+        </div>
+        <div class="fc-face fc-back">
+          <div class="fc-hint">Определение + пример</div>
+          <div class="fc-def" id="fc-def-back"></div>
+          <div class="fc-eg" id="fc-eg-back"></div>
+        </div>
+      </div>
+    </div>
+    <div class="fc-actions">
+      <button class="fc-btn dontknow" onclick="fcAnswer(false)">✗ Ещё учу</button>
+      <button class="fc-btn reset-fc" onclick="fcReset()">↺ Сначала</button>
+      <button class="fc-btn know" onclick="fcAnswer(true)">✓ Знаю!</button>
+    </div>
+    <div class="fc-nav">
+      <button onclick="fcGo(-1)">←</button>
+      <span id="fc-nav-pos"></span>
+      <button onclick="fcGo(1)">→</button>
+    </div>
+  </div>
+
+  <!-- MATCH -->
+  <div id="mode-match" class="trainer-content">
+    <div class="match-score">Совпадений: <strong id="match-score">0</strong> / <span id="match-total">8</span></div>
+    <div style="max-width:900px;margin:1rem auto 0">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.5rem">
+        <div class="match-col-title">Термины</div>
+        <div class="match-col-title">Определения</div>
+      </div>
+      <div class="match-grid">
+        <div class="match-col" id="match-terms"></div>
+        <div class="match-col" id="match-defs"></div>
+      </div>
+    </div>
+    <div class="match-actions">
+      <button class="btn-primary" onclick="initMatch()">↺ Новый раунд</button>
+    </div>
+  </div>
+
+  <!-- EXAMPLE MODE -->
+  <div id="mode-example" class="trainer-content">
+    <div class="ex-counter">
+      <span>Вопрос <strong id="ex-q-num">1</strong> / <strong id="ex-q-total">40</strong></span>
+      <span>Правильных: <span class="ex-score" id="ex-score">0</span></span>
+    </div>
+    <div class="ex-card">
+      <div id="ex-scenario" class="ex-scenario"></div>
+      <select id="ex-select" class="ex-select">
+        <option value="">— Выбери термин —</option>
+      </select>
+      <button class="btn-primary" onclick="checkExample()">Проверить</button>
+      <div id="ex-feedback" class="ex-feedback"></div>
+    </div>
+    <div class="ex-actions" style="margin-top:1rem">
+      <button class="fc-btn reset-fc" onclick="initExample()">↺ Сначала</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ====================== DATA ======================
+const TERMS = [
+  {
+    id:1,en:"Internal validity",ru:"Внутренняя валидность",cat:"methodology",
+    short:"Насколько твоё исследование действительно измеряет то, что ты хочешь измерить — а не что-то постороннее.",
+    full:"Внутренняя валидность — это уверенность в том, что найденный эффект вызван именно тестируемой переменной, а не посторонними факторами. Высокая внутренняя валидность означает: мы правильно установили причинно-следственную связь внутри исследования.",
+    example_ru:"Ты изучаешь, влияет ли просмотр новостей на уровень тревожности. Но если участники одновременно переживают экзамены — это угроза внутренней валидности: возможно, тревога от экзаменов, а не от новостей.",
+    example_en:"You study whether watching news increases anxiety. But if participants are also experiencing exam stress, that threatens internal validity — the anxiety may be caused by exams, not news.",
+    analogy:"Это как кухонные весы: если они правильно показывают 100г именно муки (а не колебания стола), внутренняя валидность высокая.",
+    topic:"Тема 11"
+  },
+  {
+    id:2,en:"External validity",ru:"Внешняя валидность",cat:"methodology",
+    short:"Можно ли перенести выводы твоего исследования на других людей, в другие места и в другое время?",
+    full:"Внешняя валидность — это степень обобщаемости результатов исследования. Даже если эксперимент идеально поставлен (высокая внутренняя валидность), его выводы могут не работать за пределами конкретной выборки или условий.",
+    example_ru:"Исследование, проведённое только на студентах одного вуза, имеет низкую внешнюю валидность: его результаты сложно применить ко всей молодёжи страны.",
+    example_en:"A study conducted only on students of one university has low external validity: findings are hard to generalize to all young people.",
+    analogy:"Вкусно ли в одном ресторане — не значит, что вся сеть хороша. Внешняя валидность — это про то, насколько «один ресторан» представляет «всю сеть».",
+    topic:"Тема 11"
+  },
+  {
+    id:3,en:"Probability sampling",ru:"Вероятностная выборка",cat:"methodology",
+    short:"Метод, при котором каждый человек из генеральной совокупности имеет известный ненулевой шанс попасть в выборку.",
+    full:"Вероятностная выборка — это способ отбора участников, при котором каждый элемент генеральной совокупности имеет заранее определённую вероятность быть выбранным. Это позволяет делать статистически обоснованные обобщения на всю совокупность.",
+    example_ru:"Социологи берут список всех зарегистрированных избирателей и случайно выбирают каждого 100-го — это систематическая вероятностная выборка.",
+    example_en:"Sociologists take a list of all registered voters and randomly select every 100th person — this is systematic probability sampling.",
+    analogy:"Лотерея: у каждого билета равный шанс. Именно это «равенство шансов» отличает вероятностную выборку.",
+    topic:"Тема 11"
+  },
+  {
+    id:4,en:"Non-probability sampling",ru:"Невероятностная выборка",cat:"methodology",
+    short:"Выборка, при которой не все члены генеральной совокупности имеют равный или известный шанс попасть в исследование.",
+    full:"Невероятностная выборка используется, когда полный список генеральной совокупности недоступен или нецелесообразен. Она удобнее и дешевле, но не позволяет делать строгие статистические обобщения. Включает удобную, квотную, снежный ком и другие виды выборки.",
+    example_ru:"Исследователь опрашивает прохожих у метро — это невероятностная (удобная) выборка: не все горожане имели шанс быть опрошенными.",
+    example_en:"A researcher surveys passersby near a metro station — this is non-probability (convenience) sampling: not all city residents had a chance to be included.",
+    analogy:"Попросить друзей порекомендовать друзей для опроса — это невероятностная выборка (снежный ком).",
+    topic:"Тема 11"
+  },
+  {
+    id:5,en:"Correlation vs causation",ru:"Корреляция vs причинность",cat:"methodology",
+    short:"Корреляция = два явления связаны. Причинность = одно вызывает другое. Путать их — классическая ошибка.",
+    full:"Корреляция означает, что два показателя изменяются вместе (один растёт — другой тоже). Причинность означает, что одно явление непосредственно порождает другое. Наличие корреляции не доказывает причинности: оба явления могут быть вызваны третьим фактором (confounding variable).",
+    example_ru:"Продажи мороженого и уровень утоплений коррелируют — но мороженое не вызывает утоплений. Обоими факторами управляет лето (жара).",
+    example_en:"Ice cream sales and drowning rates correlate — but ice cream doesn't cause drowning. Both are driven by summer heat.",
+    analogy:"Петухи кричат перед рассветом, но это не они заставляют солнце вставать.",
+    topic:"Темы 9, 11",
+    mini_schema:true
+  },
+  {
+    id:6,en:"Convenience sample",ru:"Удобная выборка",cat:"methodology",
+    short:"Берёшь тех, кого легко найти: друзей, студентов, прохожих. Дёшево, но не репрезентативно.",
+    full:"Удобная выборка (convenience sample) — тип невероятностной выборки, когда участников выбирают исходя из доступности и удобства, а не случайности. Часто используется в академических исследованиях из-за ограниченных ресурсов. Главный минус — сложно обобщить результаты.",
+    example_ru:"Профессор проводит эксперимент на своих студентах — типичная удобная выборка. Большинство психологических исследований страдают этой проблемой.",
+    example_en:"A professor runs an experiment on their own students — a typical convenience sample. Most psychology studies suffer from this problem.",
+    analogy:"Спросить мнения только своих подписчиков в Instagram — это тоже удобная выборка.",
+    topic:"Тема 11"
+  },
+  {
+    id:7,en:"Deontology vs consequentialism",ru:"Деонтология vs консеквенциализм",cat:"ethics",
+    short:"Деонтология: важны правила и намерения. Консеквенциализм: важен результат. Два главных способа думать об этике.",
+    full:"Деонтология (Кант): действие правильно, если соответствует долгу и моральным правилам — независимо от последствий. Консеквенциализм (Милль): действие правильно, если приводит к наилучшим последствиям для наибольшего числа людей (утилитаризм).",
+    example_ru:"Деонтолог скажет, что обманывать аудиторию недопустимо даже ради роста просмотров. Консеквенциалист спросит: какой вред реально нанесла ложь?",
+    example_en:"A deontologist says deceiving the audience is always wrong. A consequentialist asks: what actual harm did the deception cause?",
+    analogy:"Деонтология — «правила дорожного движения нельзя нарушать». Консеквенциализм — «если никто не пострадал, всё ок».",
+    topic:"Темы 1, 10"
+  },
+  {
+    id:8,en:"Random error",ru:"Случайная ошибка",cat:"methodology",
+    short:"Случайные отклонения в данных, не связанные с системой — просто шум. Уменьшается при увеличении выборки.",
+    full:"Случайная ошибка (random error) — непредсказуемые отклонения в измерениях, возникающие из-за случайных факторов (настроение респондента, усталость исследователя, технические помехи). В отличие от систематической ошибки, случайная ошибка не смещает результаты в одну сторону, но снижает точность.",
+    example_ru:"Если спрашивать людей о их медиапотреблении, одни вспомнят точнее, другие хуже — это случайная ошибка измерения.",
+    example_en:"When asking people about their media consumption, some will recall more accurately than others — this is random measurement error.",
+    analogy:"Стрелять по мишени с закрытыми глазами: промахи есть и влево, и вправо — это случайная ошибка. Если всегда левее — это систематическая.",
+    topic:"Тема 11"
+  },
+  {
+    id:9,en:"Concealment vs deception",ru:"Сокрытие vs обман",cat:"ethics",
+    short:"Сокрытие — не говоришь всего правды. Обман — говоришь неправду. Оба под вопросом этики, но обман серьёзнее.",
+    full:"Сокрытие (concealment) означает намеренное умолчание о некоторых деталях исследования — например, о его истинной цели. Обман (deception) предполагает предоставление заведомо ложной информации участникам. Оба приёма иногда применяются в исследованиях, но требуют этического обоснования и последующего дебрифинга.",
+    example_ru:"Эксперимент Милгрэма использовал обман: участникам говорили, что они участвуют в изучении памяти, а не послушания.",
+    example_en:"Milgram's experiment used deception: participants were told they were studying memory, not obedience.",
+    analogy:"Сокрытие — не сказать другу, что вечеринка сюрприз. Обман — сказать, что вечеринки не будет вообще.",
+    topic:"Тема 10"
+  },
+  {
+    id:10,en:"Debriefing",ru:"Дебрифинг",cat:"ethics",
+    short:"После исследования нужно объяснить участникам, что на самом деле происходило — особенно если был обман.",
+    full:"Дебрифинг (debriefing) — обязательная процедура после завершения исследования, в ходе которой участников информируют об истинных целях и методах работы, особенно если применялся обман или сокрытие. Это помогает снять психологический дискомфорт и восстановить доверие.",
+    example_ru:"После того как участник думал, что причиняет боль другому (эксперимент Милгрэма), исследователь должен был объяснить: никакого вреда не было нанесено, цель — изучить послушание.",
+    example_en:"After a participant thought they were hurting someone (Milgram), the researcher must explain: no harm was done; the goal was to study obedience.",
+    analogy:"Как раскрыть финал розыгрыша и убедиться, что человек не обиделся и всё понял.",
+    topic:"Тема 10"
+  },
+  {
+    id:11,en:"Anonymity vs confidentiality",ru:"Анонимность vs конфиденциальность",cat:"ethics",
+    short:"Анонимность: исследователь не знает, кто ты. Конфиденциальность: знает, но никому не скажет.",
+    full:"Анонимность означает, что исследователь вообще не знает личность участника (например, анонимный опрос онлайн). Конфиденциальность означает, что личность известна исследователю, но не будет раскрыта третьим лицам. Обе процедуры защищают участников, но обеспечивают разный уровень защиты.",
+    example_ru:"Опрос без имён на Google Forms — анонимность. Глубинное интервью с исследователем, который не раскрывает, кто именно сказал что — конфиденциальность.",
+    example_en:"An unnamed Google Forms survey — anonymity. A deep interview where the researcher doesn't reveal who said what — confidentiality.",
+    analogy:"Анонимность — маскарадный костюм. Конфиденциальность — исповедь у священника.",
+    topic:"Тема 10"
+  },
+  {
+    id:12,en:"Informed consent",ru:"Информированное согласие",cat:"ethics",
+    short:"Участник должен знать, что происходит, и добровольно согласиться участвовать — это этическая основа любого исследования.",
+    full:"Информированное согласие (informed consent) — принцип, согласно которому участники исследования должны быть заранее и в полной мере осведомлены о его целях, методах, рисках и своих правах (включая право выйти в любой момент). Согласие должно быть добровольным и осознанным.",
+    example_ru:"Перед участием в фокус-группе о медиапотреблении участникам дают форму: что будет записываться, как используются данные, можно ли отказаться.",
+    example_en:"Before a media consumption focus group, participants are given a form: what will be recorded, how data will be used, and how to opt out.",
+    analogy:"Согласие на использование cookies — упрощённый аналог информированного согласия (хотя обычно никто не читает).",
+    topic:"Тема 10"
+  },
+  {
+    id:13,en:"Encoding / Decoding",ru:"Кодирование / Декодирование",cat:"media",
+    short:"Стюарт Холл: производитель кодирует смысл в медиасообщение, зритель его декодирует — и не обязательно так, как задумано.",
+    full:"Модель Стюарта Холла (1980): медиасообщение проходит через кодирование (encoding) — когда производитель вкладывает доминирующий смысл — и декодирование (decoding) — когда аудитория интерпретирует его. Холл выделяет три позиции декодирования: доминирующая (принимаем смысл как есть), переговорная (частично принимаем), оппозиционная (отвергаем).",
+    example_ru:"Реклама Nike кодирует: «занимайся спортом — будешь успешен». Одни декодируют именно так. Критик декодирует оппозиционно: «это эксплуатация рабочих в Азии».",
+    example_en:"Nike ad encodes: 'sport = success'. Some decode it exactly that way. A critic decodes oppositionally: 'this exploits Asian workers'.",
+    analogy:"Отправить смайлик 🍑 другу и родителям — вы кодируете одинаково, но они декодируют по-разному.",
+    why:"Ключевой сдвиг от «аудитория пассивна» к «аудитория активна». Объясняет, почему одна и та же новость может быть воспринята совершенно по-разному разными людьми.",
+    topic:"Тема 7",featured:true
+  },
+  {
+    id:14,en:"Unobtrusive research",ru:"Ненавязчивое исследование",cat:"methodology",
+    short:"Изучаешь людей так, что они не знают о наблюдении — и не меняют поведение из-за твоего присутствия.",
+    full:"Ненавязчивое исследование (unobtrusive research) — метод, при котором исследователь не взаимодействует напрямую с участниками и не оказывает на них влияния. Примеры: анализ контента, изучение архивов, наблюдение за публичным поведением, анализ следов (wear and tear). Устраняет эффект реактивности (Hawthorne effect).",
+    example_ru:"Анализировать, какие темы чаще всего обсуждаются в Telegram-каналах — это ненавязчивое исследование. Авторы не знают, что их изучают.",
+    example_en:"Analyzing which topics are most discussed in Telegram channels — unobtrusive research. The authors don't know they're being studied.",
+    analogy:"Изучать следы на снегу, чтобы понять, где ходят люди — без того, чтобы спрашивать их об этом.",
+    topic:"Тема 12"
+  },
+  {
+    id:15,en:"Operational definition",ru:"Операциональное определение",cat:"methodology",
+    short:"Как именно ты будешь измерять абстрактное понятие. Без этого исследование не воспроизвести.",
+    full:"Операциональное определение — это конкретная процедура или набор критериев, по которым измеряется абстрактный концепт в данном исследовании. Без операционализации понятия невозможно проверить исследование и сравнить с другими работами.",
+    example_ru:"«Медиапотребление» абстрактно. Операциональное определение: «количество часов в день, проведённых за просмотром YouTube, Netflix и TikTok».",
+    example_en:"'Media consumption' is abstract. Operational definition: 'hours per day spent watching YouTube, Netflix, and TikTok'.",
+    analogy:"«Много ешь» — абстракция. «Более 3000 ккал в день» — операциональное определение.",
+    topic:"Тема 9"
+  },
+  {
+    id:16,en:"Confidence interval",ru:"Доверительный интервал",cat:"methodology",
+    short:"Диапазон значений, в котором с заданной вероятностью находится истинный параметр генеральной совокупности.",
+    full:"Доверительный интервал (confidence interval) — диапазон, в котором с определённой вероятностью (обычно 95%) находится истинное значение изучаемого параметра. Например, «54% ± 3%» при 95% ДИ означает: если повторить выборку 100 раз, в 95 случаях результат попадёт в этот диапазон.",
+    example_ru:"Рейтинг политика: 48%, доверительный интервал ±3% при 95%. Реальный рейтинг, скорее всего, от 45% до 51%.",
+    example_en:"Politician approval: 48%, confidence interval ±3% at 95%. The true rating is likely between 45% and 51%.",
+    analogy:"Забрасываешь сеть в реку. 95% ДИ — это ширина сети: рыба (истина) скорее всего попадёт в неё.",
+    topic:"Тема 11"
+  },
+  {
+    id:17,en:"Snowball sampling",ru:"Снежный ком",cat:"methodology",
+    short:"Один участник рекомендует следующего, тот — ещё одного. Идеально для закрытых сообществ, которые сложно найти.",
+    full:"Выборка методом снежного кома (snowball sampling) — техника невероятностной выборки, при которой уже найденные участники помогают найти новых. Особенно полезна при изучении труднодоступных групп (например, нелегальные мигранты, наркопотребители, члены закрытых онлайн-сообществ).",
+    example_ru:"Исследователь изучает анонимные форумы в даркнете. Один участник сообщества соглашается на интервью и рекомендует других — снежный ком.",
+    example_en:"A researcher studies anonymous dark web forums. One community member agrees to an interview and recommends others — snowball sampling.",
+    analogy:"Как попасть на закрытую вечеринку: один человек провёл тебя, ты рекомендуешь другого.",
+    topic:"Тема 11"
+  },
+  {
+    id:18,en:"Positive vs normative statements",ru:"Позитивные vs нормативные утверждения",cat:"philosophy",
+    short:"Позитивное: как есть (факт). Нормативное: как должно быть (оценка, ценность).",
+    full:"Позитивное утверждение (positive statement) описывает факты и может быть проверено эмпирически. Нормативное утверждение (normative statement) выражает ценностные суждения о том, как должно быть. В медиаисследованиях важно различать эти типы, чтобы не путать описание реальности с её оценкой.",
+    example_ru:"Позитивное: «Треть новостей в ТГ-каналах содержит непроверенные факты». Нормативное: «СМИ должны публиковать только проверенную информацию».",
+    example_en:"Positive: 'A third of Telegram news posts contain unverified facts.' Normative: 'Media should only publish verified information.'",
+    analogy:"Позитивное — протокол наблюдений. Нормативное — редакционная политика.",
+    topic:"Темы 1, 9"
+  },
+  {
+    id:19,en:"Audience fragmentation",ru:"Фрагментация аудитории",cat:"media",
+    short:"Когда не существует единой массовой аудитории — все смотрят разное, слушают разное, живут в своих информационных пузырях.",
+    full:"Фрагментация аудитории — процесс, при котором массовая аудитория распадается на множество мелких нишевых групп, каждая из которых потребляет свой специфический медиаконтент. Цифровые медиа ускорили этот процесс: алгоритмы рекомендаций создают персонализированные «эхо-камеры».",
+    example_ru:"Раньше вся страна смотрела одну программу в 9 вечера. Сейчас кто-то в TikTok, кто-то в подкасте, кто-то в Telegram-канале о рептилиях.",
+    example_en:"Once, the whole country watched the same 9pm broadcast. Now some are on TikTok, others in podcasts, others in a Telegram channel about reptiles.",
+    topic:"Тема 14"
+  },
+  {
+    id:20,en:"Surveillance capitalism",ru:"Капитализм слежки",cat:"media",
+    short:"Шошана Зубофф: бигтех зарабатывает, превращая твоё поведение в данные и продавая предсказания о тебе.",
+    full:"Капитализм слежки (surveillance capitalism) — концепт Шошаны Зубофф (2019). Суть: платформы (Google, Meta) систематически собирают поведенческие данные пользователей, преобразуют их в «поведенческий избыток», из которого создают «предсказательные продукты», и продают рекламодателям возможность влиять на поведение людей.",
+    example_ru:"Google следит за твоими поисковыми запросами и продаёт рекламодателям предсказание: «этот пользователь с 87% вероятностью купит кроссовки в следующие 3 дня».",
+    example_en:"Google tracks your searches and sells advertisers a prediction: 'this user has an 87% chance of buying sneakers in the next 3 days'.",
+    why:"Объясняет, почему бесплатные сервисы — не «бесплатны»: валютой служат данные о тебе. Меняет понимание того, кто является «клиентом» платформ.",
+    topic:"Тема 6",featured:true
+  },
+  {
+    id:21,en:"Case study",ru:"Кейс-стади",cat:"methodology",
+    short:"Глубокое изучение одного конкретного случая — человека, события, организации или медиапродукта.",
+    full:"Метод кейс-стади предполагает детальное исследование одного или нескольких отдельных случаев в их реальном контексте. Это качественный метод, обеспечивающий богатство деталей, но не позволяющий делать строгие статистические обобщения. Полезен для изучения уникальных или сложных явлений.",
+    example_ru:"Детальный анализ того, как один конкретный Telegram-канал формировал повестку во время политического кризиса — это кейс-стади.",
+    example_en:"A detailed analysis of how one specific Telegram channel shaped the agenda during a political crisis — that's a case study.",
+    analogy:"Кейс-стади — как медицинский случай в журнале: один пациент, максимум деталей.",
+    topic:"Тема 13"
+  },
+  {
+    id:22,en:"Ethnography",ru:"Этнография",cat:"methodology",
+    short:"Долгое погружение в жизнь группы изнутри — наблюдаешь, участвуешь, пишешь об увиденном.",
+    full:"Этнография — качественный метод исследования, основанный на длительном включённом наблюдении за определённой группой или сообществом. Исследователь не просто смотрит со стороны, но становится частью изучаемой среды. В медиаисследованиях применяется для изучения медиапотребления в естественном контексте.",
+    example_ru:"Исследователь живёт с семьёй несколько месяцев, наблюдая, как они смотрят новости, обсуждают их за ужином и делятся ссылками — это этнографическое исследование.",
+    example_en:"A researcher lives with a family for months, observing how they watch news, discuss it at dinner, and share links — that's ethnography.",
+    analogy:"Дэвид Аттенборо в дикой природе: не просто снимает, а живёт среди тех, кого изучает.",
+    topic:"Тема 13"
+  },
+  {
+    id:23,en:"Focus group",ru:"Фокус-группа",cat:"methodology",
+    short:"Небольшая группа людей, которую собирают вместе, чтобы обсудить тему под руководством модератора.",
+    full:"Фокус-группа — качественный метод сбора данных, при котором 6–12 участников обсуждают тему под руководством модератора. Ценность метода — в групповой динамике: участники реагируют на мнения друг друга, что выявляет установки и смыслы, которые сложно обнаружить в индивидуальных интервью.",
+    example_ru:"Netflix собирает фокус-группу из 8 зрителей, чтобы узнать реакцию на пилотный эпизод нового сериала до его выпуска.",
+    example_en:"Netflix gathers a focus group of 8 viewers to gauge reactions to a pilot episode before its release.",
+    analogy:"Дружеское обсуждение фильма после просмотра — неформальная фокус-группа.",
+    topic:"Тема 13"
+  },
+  {
+    id:24,en:"P-hacking",ru:"П-взлом (P-hacking)",cat:"methodology",
+    short:"Манипуляция данными или методами анализа до тех пор, пока результат не станет «статистически значимым». Это мошенничество в науке.",
+    full:"P-hacking (взлом p-значения) — практика многократного анализа данных с разными переменными, подвыборками или методами до тех пор, пока p < 0.05. Это нарушает логику нулевой гипотезы: при многократных тестах «случайно» значимый результат просто обязан появиться. Ведёт к ложным открытиям и кризису воспроизводимости в науке.",
+    example_ru:"Исследователь тестирует 20 разных способов анализа одних и тех же данных о просмотре рекламы. В одном из 20 результат оказывается значимым — и только его публикуют.",
+    example_en:"A researcher tests 20 different ways to analyze the same ad-viewing data. One of 20 comes out significant — and only that one gets published.",
+    mini_schema:true,
+    topic:"Темы 9, 13"
+  },
+  {
+    id:25,en:"Internal reliability",ru:"Внутренняя надёжность",cat:"methodology",
+    short:"Измеряет ли твой инструмент (шкала, тест) одно и то же последовательно — согласованы ли его части между собой.",
+    full:"Внутренняя надёжность (internal reliability) — степень согласованности между разными пунктами одного измерительного инструмента. Если вопросы в опроснике, якобы измеряющие одно и то же, дают несвязанные результаты — надёжность низкая. Часто оценивается через коэффициент альфа Кронбаха (α ≥ 0.7 считается приемлемым).",
+    example_ru:"Шкала тревожности из 10 вопросов: если человек набирает высокий балл по 9 из них, но низкий по 10-му — это угроза внутренней надёжности.",
+    example_en:"A 10-item anxiety scale: if someone scores high on 9 items but low on item 10 — this threatens internal reliability.",
+    analogy:"Термометр должен показывать одинаковую температуру в подмышке и в ухе (если измеряем одно и то же). Иначе инструмент ненадёжен.",
+    topic:"Тема 11"
+  },
+  {
+    id:26,en:"Theoretical saturation",ru:"Теоретическое насыщение",cat:"methodology",
+    short:"В качественном исследовании: момент, когда новые данные больше не добавляют ничего нового — всё, что можно узнать, уже известно.",
+    full:"Теоретическое насыщение (theoretical saturation) — критерий прекращения сбора данных в качественных исследованиях (особенно в заземлённой теории). Когда новые интервью, наблюдения или документы перестают давать новые концепты или категории — выборка считается насыщенной. Аналог «достаточного» размера выборки в количественных методах.",
+    example_ru:"Провёл 12 интервью с пользователями TikTok о том, почему они проводят там время. Последние 3 интервью не добавили ни одной новой темы — достигнуто теоретическое насыщение.",
+    example_en:"After 12 TikTok user interviews, the last 3 added no new themes — theoretical saturation has been reached.",
+    analogy:"Губка: вначале впитывает воду быстро, потом всё медленнее, пока полностью не насытится.",
+    topic:"Тема 13"
+  },
+  {
+    id:27,en:"Manifest content",ru:"Манифестное содержание",cat:"methodology",
+    short:"То, что явно и буквально присутствует в тексте или медиасообщении — то, что видит любой наблюдатель.",
+    full:"Манифестное содержание (manifest content) — явные, наблюдаемые элементы медиасообщения: конкретные слова, изображения, факты. В контент-анализе — то, что можно закодировать механически. Противопоставляется латентному содержанию (скрытым смыслам, коннотациям, идеологии).",
+    example_ru:"В новостном сюжете: количество упоминаний слова «кризис», число мужчин и женщин-экспертов — это манифестное содержание. Подтекст о «слабости власти» — латентное.",
+    example_en:"In a news story: count of the word 'crisis', number of male vs female experts — manifest content. The subtext about 'weak government' — latent content.",
+    analogy:"Манифестное — ноты на бумаге. Латентное — эмоция, которую музыка вызывает.",
+    topic:"Тема 12"
+  },
+  {
+    id:28,en:"Quota sampling",ru:"Квотная выборка",cat:"methodology",
+    short:"Набираешь участников до определённых квот (например, 50% женщин, 30% молодёжи) — невероятностно, но с контролем пропорций.",
+    full:"Квотная выборка (quota sampling) — тип невероятностной выборки, при котором исследователь заранее задаёт квоты по ключевым характеристикам (пол, возраст, регион) и набирает участников в каждую квоту любым доступным способом. Внешне похожа на стратифицированную выборку, но без случайного отбора внутри квот.",
+    example_ru:"Соцопрос: нужно 200 мужчин и 200 женщин среди жителей Вильнюса. Интервьюеры сами находят нужных людей, пока квоты не заполнены.",
+    example_en:"Poll: need 200 men and 200 women from Vilnius. Interviewers find people themselves until quotas are filled.",
+    analogy:"Кастинг фильма: режиссёру нужен один персонаж 20 лет и один 60 лет — выбирают не случайно, а по заданным параметрам.",
+    topic:"Тема 11"
+  },
+  {
+    id:29,en:"Mean vs median vs mode",ru:"Среднее vs медиана vs мода",cat:"methodology",
+    short:"Три способа найти «типичное» значение. Среднее — сумма делённая на количество. Медиана — серединное значение. Мода — самое частое.",
+    full:"Среднее арифметическое (mean): сумма всех значений / количество. Чувствительно к выбросам. Медиана (median): значение, делящее ряд пополам. Устойчива к выбросам. Мода (mode): наиболее часто встречающееся значение. В медиаисследованиях медиана часто точнее отражает «типичное» поведение аудитории.",
+    example_ru:"Доход 5 журналистов: 800, 900, 950, 1000, 5000 евро. Среднее = 1730 (искажено богачом). Медиана = 950 (реальнее). Мода = нет (все уникальны).",
+    example_en:"Salaries of 5 journalists: 800, 900, 950, 1000, 5000. Mean = 1730 (skewed by outlier). Median = 950 (more accurate). No mode.",
+    analogy:"Средний рост в NBA искажён из-за гигантов. Медиана точнее показывает «обычного» игрока.",
+    topic:"Тема 11"
+  },
+  {
+    id:30,en:"Standard deviation",ru:"Стандартное отклонение",cat:"methodology",
+    short:"Насколько данные разбросаны вокруг среднего. Маленькое SD — все близко к среднему. Большое — данные «размазаны».",
+    full:"Стандартное отклонение (standard deviation) — мера разброса данных относительно среднего значения. Рассчитывается как корень из дисперсии. Позволяет понять, насколько однородна или разнородна исследуемая группа по измеряемому признаку.",
+    example_ru:"Время просмотра YouTube у 100 студентов: среднее = 3 часа, SD = 0.5 часа. Большинство смотрят 2.5–3.5 ч. Если SD = 3 часа — кто-то 10 минут, кто-то весь день.",
+    example_en:"YouTube viewing time among 100 students: mean = 3 hrs, SD = 0.5. Most watch 2.5–3.5h. If SD = 3hrs, someone watches 10 min, someone all day.",
+    analogy:"Стрелять по мишени: малое SD = все попадания кучно. Большое SD = выстрелы по всей стене.",
+    topic:"Тема 11"
+  },
+  {
+    id:31,en:"Control group",ru:"Контрольная группа",cat:"methodology",
+    short:"Группа участников, которая не получает экспериментального воздействия — нужна, чтобы сравнить с ней результаты.",
+    full:"Контрольная группа (control group) — группа участников эксперимента, не подвергающаяся изучаемому воздействию (или получающая плацебо). Результаты экспериментальной группы сравниваются с контрольной, что позволяет выявить эффект именно изучаемого фактора. Ключевой элемент рандомизированного контролируемого исследования (RCT).",
+    example_ru:"Эксперимент: влияет ли просмотр пропаганды на политические взгляды? Одна группа смотрит пропагандистские ролики, другая (контрольная) — нейтральный контент.",
+    example_en:"Experiment: does watching propaganda affect political views? One group watches propaganda; the control group watches neutral content.",
+    analogy:"В клинических испытаниях: одна группа принимает лекарство, контрольная — таблетку-пустышку.",
+    topic:"Темы 9, 11"
+  },
+  {
+    id:32,en:"Double-blind study",ru:"Двойное слепое исследование",cat:"methodology",
+    short:"Ни участники, ни исследователи не знают, кто в какой группе — это убирает предвзятость с обеих сторон.",
+    full:"Двойное слепое исследование (double-blind study) — дизайн, при котором ни участники, ни исследователи, работающие с ними, не знают, кто относится к экспериментальной, а кто к контрольной группе. Это устраняет эффект плацебо и предвзятость исследователя одновременно.",
+    example_ru:"Тест влияния «брендовых» и «безымянных» новостных заголовков на доверие: участники не знают, что их тестируют, а исследователи, опрашивающие их, не знают, какой заголовок видел каждый участник.",
+    example_en:"Testing branded vs. unbranded news headlines for trust: participants don't know they're being tested; interviewers don't know which headline each person saw.",
+    analogy:"Слепая дегустация вина: ни дегустатор, ни сомелье не знают, какое вино в стакане.",
+    topic:"Темы 9, 11"
+  },
+  {
+    id:33,en:"Ambiguous temporal precedence",ru:"Неоднозначное временное предшествование",cat:"methodology",
+    short:"Непонятно, что было раньше — причина или следствие. Без этого знания нельзя установить причинность.",
+    full:"Неоднозначное временное предшествование (ambiguous temporal precedence) — угроза внутренней валидности, возникающая, когда невозможно определить временной порядок переменных: что из чего следует? Для установления причинно-следственной связи необходимо, чтобы причина предшествовала следствию. Особенно характерна для поперечных (cross-sectional) исследований.",
+    example_ru:"Коррелируют просмотр агрессивного контента и агрессивное поведение. Но что первично? Агрессивные люди ищут такой контент, или контент делает их агрессивными?",
+    example_en:"Viewing violent content correlates with aggressive behavior. But which comes first? Do aggressive people seek violent content, or does content cause aggression?",
+    mini_schema:true,
+    topic:"Темы 9, 11"
+  },
+  {
+    id:34,en:"Non-response",ru:"Отсутствие ответа",cat:"methodology",
+    short:"Часть людей не отвечает на опрос — и это систематически искажает выборку, если «молчуны» чем-то отличаются от остальных.",
+    full:"Проблема невозвращения (non-response bias) возникает, когда люди, не ответившие на опрос, систематически отличаются от ответивших. Это приводит к смещённым результатам даже при изначально правильной выборке. Низкий response rate ставит под угрозу репрезентативность исследования.",
+    example_ru:"Опрос об уровне доверия к СМИ: те, кто полностью не доверяет медиа, скорее всего проигнорируют опрос. Результат будет смещён в сторону «доверяющих».",
+    example_en:"A media trust survey: those who deeply distrust media are more likely to ignore it. Results will skew toward 'trusters'.",
+    analogy:"Оценки на Rate My Professor: недовольные студенты либо молчат, либо кричат. Довольные часто просто не пишут ничего.",
+    topic:"Тема 11"
+  },
+  {
+    id:35,en:"Positive vs negative freedom",ru:"Позитивная vs негативная свобода",cat:"philosophy",
+    short:"Негативная: свобода ОТ (вмешательства). Позитивная: свобода ДЛЯ (возможности действовать). Исайя Берлин.",
+    full:"Философ Исайя Берлин различал два концепта свободы. Негативная свобода (negative freedom) — отсутствие внешних ограничений и принуждения: «меня никто не мешает». Позитивная свобода (positive freedom) — наличие реальных возможностей и ресурсов для самореализации: «я могу это сделать». В медиаконтексте: свобода прессы от цензуры (негативная) vs доступность медиаобразования (позитивная).",
+    example_ru:"Негативная: законы не запрещают создавать YouTube-канал. Позитивная: у тебя есть интернет, камера и навыки для этого.",
+    example_en:"Negative: no law forbids you from creating a YouTube channel. Positive: you have internet, a camera, and the skills to do it.",
+    analogy:"Убрать забор вокруг бассейна (негативная) vs научить человека плавать (позитивная).",
+    topic:"Тема 1"
+  },
+  {
+    id:36,en:"The Enlightenment",ru:"Просвещение",cat:"philosophy",
+    short:"Эпоха XVII–XVIII вв., когда разум и наука стали центром мировоззрения. Основа западной идеи публичной сферы и свободной прессы.",
+    full:"Просвещение (The Enlightenment) — интеллектуальное движение XVII–XVIII вв. (Локк, Юм, Кант, Вольтер), утвердившее приоритет разума, критического мышления, индивидуальных прав и светского государства над религиозным авторитетом. В медиаисследованиях: Просвещение дало концепцию публичной сферы (Хабермас) и обоснование свободы слова.",
+    example_ru:"Идея «четвёртой власти» — прессы как контролёра правительства — прямо следует из просветительских идей о публичном разуме.",
+    example_en:"The idea of the 'fourth estate' — press as a government watchdog — directly follows Enlightenment ideas about public reason.",
+    why:"Всё, что мы думаем о свободе прессы, праве на информацию и публичном дискурсе, коренится в идеях Просвещения.",
+    topic:"Тема 1",featured:true
+  },
+  {
+    id:37,en:"Historical materialism",ru:"Исторический материализм",cat:"philosophy",
+    short:"Маркс: историю движет не идеология, а экономика. Тот, кто владеет средствами производства, контролирует культуру и медиа.",
+    full:"Исторический материализм — философская концепция Маркса, согласно которой материальные условия производства (базис) определяют культуру, политику и идеологию (надстройку). В медиаисследованиях: масс-медиа — часть надстройки, обслуживающей интересы господствующего класса. Кто владеет СМИ — тот формирует «нормальность».",
+    example_ru:"Медиахолдинги принадлежат крупному капиталу. По Марксу, это неслучайно: они транслируют взгляды, удобные для существующего экономического порядка.",
+    example_en:"Media conglomerates belong to big capital. For Marx, this is no coincidence: they broadcast views convenient for the existing economic order.",
+    topic:"Темы 1, 2"
+  },
+  {
+    id:38,en:"Critical theory",ru:"Критическая теория",cat:"philosophy",
+    short:"Франкфуртская школа: медиа — инструмент контроля и стандартизации. Задача теории — разоблачать власть и освобождать сознание.",
+    full:"Критическая теория — направление, разработанное Франкфуртской школой (Адорно, Хоркхаймер, Маркузе, позднее Хабермас). Ключевые идеи: культурная индустрия производит стандартизированные товары, подавляя критическое мышление; масс-медиа воспроизводят идеологию господствующего класса. Задача критической теории — не просто описывать, но освобождать.",
+    example_ru:"Адорно и Хоркхаймер: попсовая музыка и голливудские блокбастеры — это «культурная индустрия», которая делает людей пассивными потребителями, неспособными сопротивляться капитализму.",
+    example_en:"Adorno & Horkheimer: pop music and Hollywood blockbusters are 'culture industry' — making people passive consumers unable to resist capitalism.",
+    why:"Объясняет, почему медиа воспроизводят неравенство и почему необходим критический анализ — а не просто потребление — медиаконтента.",
+    topic:"Темы 2, 5",featured:true
+  },
+  {
+    id:39,en:"Panopticon",ru:"Паноптикон",cat:"philosophy",
+    short:"Мишель Фуко по Бентаму: тюрьма, где надзиратель видит всех, но его никто не видит. Метафора тотального контроля в современном обществе.",
+    full:"Паноптикон (Panopticon) — архитектурная модель тюрьмы Иеремии Бентама (1791): круглое здание с надзирательной башней в центре, где заключённые постоянно видимы, но не знают, наблюдают ли за ними прямо сейчас. Мишель Фуко использует паноптикон как метафору «дисциплинарного общества»: достаточно потенциала наблюдения, чтобы люди контролировали себя сами.",
+    example_ru:"Камеры видеонаблюдения в офисе: не факт, что кто-то смотрит запись — но сотрудники ведут себя иначе, просто зная об их существовании.",
+    example_en:"CCTV cameras in an office: nobody may be watching the feed, but employees behave differently just knowing cameras exist.",
+    why:"Центральная метафора для понимания цифровой слежки: Google, Facebook, государственный мониторинг. Вопрос не «следят ли за тобой», а «знаешь ли ты, что могут следить».",
+    topic:"Тема 6",featured:true
+  },
+  {
+    id:40,en:"Space-time bias in communication",ru:"Пространственно-временное смещение в коммуникации",cat:"media",
+    short:"Иннис: каждое медиа либо хорошо для передачи через время (камень, пергамент), либо для распространения в пространстве (интернет, радио). Это определяет структуру власти в обществе.",
+    full:"Теория Гарольда Инниса: каждое медиа имеет «смещение» (bias). Медиа с пространственным смещением (space bias) — лёгкие, портативные (бумага, радио, интернет) — хорошо распространяют информацию на большие расстояния, но недолговечны. Медиа с временны́м смещением (time bias) — тяжёлые, прочные (камень, пергамент) — сохраняются веками, но не распространяются широко. Доминирующее медиа определяет тип власти: священническая (время) или военно-административная (пространство).",
+    example_ru:"Интернет — крайнее пространственное смещение: информация мгновенно достигает любой точки планеты, но исчезает так же быстро. Египетские иероглифы — временно́е смещение: 5000 лет спустя мы их читаем.",
+    example_en:"The internet is extreme space bias: information reaches anywhere instantly but also disappears fast. Egyptian hieroglyphs are time bias: we still read them 5000 years later.",
+    why:"Помогает объяснить, почему Twitter/TikTok порождают «культуру момента», а книги — «культуру памяти». Разные медиа создают разные типы обществ.",
+    topic:"Тема 2",featured:true
+  }
+];
+
+const TIMELINE = [
+  {date:"1680–1780s",name:"Просвещение",school:"Кант, Милль, Локк",idea:"Разум важнее традиции. Публичная сфера, свобода слова, критическое мышление — отсюда растут все идеи о свободной прессе.",tag:"The Enlightenment",example:"Идея независимых СМИ как «четвёртой власти»",color:"#7c6af7"},
+  {date:"1840–1880s",name:"Карл Маркс",school:"Исторический материализм",idea:"Экономика первична. Кто владеет средствами производства — тот формирует культуру. Медиа = инструмент класса.",tag:"Historical materialism",example:"Медиахолдинги в руках корпораций транслируют удобную им идеологию",color:"#f76a7a"},
+  {date:"1920–1950s",name:"Лассуэлл, Мертон",school:"Раннее теории коммуникации",idea:"«Кто говорит, что, по какому каналу, кому, с каким эффектом?» — первая модель массовых коммуникаций.",tag:null,example:"Анализ пропаганды Второй мировой войны",color:"#f7a76a"},
+  {date:"1930–1960s",name:"Франкфуртская школа",school:"Адорно, Хоркхаймер, Маркузе",idea:"Масс-медиа — «культурная индустрия». Они оглупляют, стандартизируют и мешают людям думать критически.",tag:"Critical theory",example:"Голливудские блокбастеры убивают независимое кино и критическое мышление",color:"#56cfb2"},
+  {date:"1950–1970s",name:"Маршалл Маклюэн",school:"Технологический детерминизм",idea:"«Медиум есть сообщение». Не важно ЧТО говорят — важно КАК говорят. Технология медиа меняет мышление и общество.",tag:null,example:"TikTok (короткое видео) меняет способность концентрироваться, не зависимо от контента",color:"#7c6af7"},
+  {date:"1940–1960s",name:"Гарольд Иннис",school:"Пространство-время в коммуникации",idea:"Каждое медиа смещено в пользу времени (вечность) или пространства (скорость). Это определяет тип власти.",tag:"Space-time bias in communication",example:"Интернет = максимальное пространственное смещение, мгновенное, но эфемерное",color:"#f76a7a"},
+  {date:"1960–1990s",name:"Беньямин, Хабермас",school:"Публичная сфера",idea:"Хабермас: демократия нуждается в «публичной сфере» — пространстве рационального дискурса. Беньямин: искусство теряет «ауру» при массовом воспроизводстве.",tag:null,example:"Telegram-каналы как новая «публичная сфера» — но кто в ней участвует?",color:"#56cfb2"},
+  {date:"1975–1995s",name:"Мишель Фуко",school:"Власть, дискурс, надзор",idea:"Власть работает через дискурс (то, что можно и нельзя говорить) и надзор. Паноптикон — метафора современного общества.",tag:"Panopticon",example:"Алгоритмы Facebook решают, что ты видишь — дискурсивная власть без насилия",color:"#f7a76a"},
+  {date:"1980–2000s",name:"Стюарт Холл, Джон Фиск",school:"Культурные исследования",idea:"Аудитория не пассивна: люди интерпретируют медиасообщения по-разному, исходя из своего класса, расы, пола.",tag:"Encoding / Decoding",example:"Один и тот же мем: для одних — смешной, для других — оскорбительный",color:"#7c6af7"},
+  {date:"1970–2000s",name:"Барт, Пропп, Тодоров",school:"Семиотика и нарратив",idea:"Медиатексты строятся по формулам. Пропп нашёл 31 функцию волшебной сказки. Барт — мифы в современной культуре. Тодоров — нарративное равновесие.",tag:null,example:"Любой Marvel-фильм следует схеме Проппа: герой, злодей, помощник, испытание, победа",color:"#f76a7a"},
+  {date:"2000–сегодня",name:"Зубофф, Кастельс",school:"Цифровые медиа",idea:"Зубофф: «Капитализм слежки» — BigTech торгует твоим поведением. Кастельс: «Сетевое общество» — власть в узлах сетей.",tag:"Surveillance capitalism",example:"Google знает о тебе больше, чем твои родители. И продаёт это знание.",color:"#56cfb2"},
+];
+
+// ====================== STATE ======================
+let knownTerms = new Set();
+let unknownTerms = new Set();
+let currentFCIdx = 0;
+let fcQueue = [];
+let fcFlipped = false;
+let matchSelected = null;
+let matchPairs = [];
+let exQueue = [];
+let exIdx = 0;
+let exScore = 0;
+const STORAGE_KEY = 'ms_known_terms';
+
+function loadProgress(){
+  try{
+    const d = localStorage.getItem(STORAGE_KEY);
+    if(d) knownTerms = new Set(JSON.parse(d));
+  }catch(e){}
+  updateProgressBar();
+}
+function saveProgress(){
+  try{localStorage.setItem(STORAGE_KEY,JSON.stringify([...knownTerms]));}catch(e){}
+  updateProgressBar();
+}
+function updateProgressBar(){
+  const pct = Math.round((knownTerms.size/TERMS.length)*100);
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('prog-text').textContent=pct+'%';
+}
+
+// ====================== COUNTDOWN ======================
+function updateCountdown(){
+  const exam = new Date('2026-06-25T09:00:00');
+  const now = new Date();
+  const diff = exam - now;
+  if(diff <= 0){
+    document.getElementById('countdown').innerHTML='<span style="color:var(--accent3)">ЭКЗАМЕН СЕГОДНЯ!</span>';
+    return;
+  }
+  const d = Math.floor(diff/86400000);
+  const h = Math.floor((diff%86400000)/3600000);
+  const m = Math.floor((diff%3600000)/60000);
+  const s = Math.floor((diff%60000)/1000);
+  document.getElementById('cd-d').textContent=d;
+  document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
+}
+
+// ====================== NAV ======================
+function showSection(id, btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ====================== TIMELINE ======================
+function buildTimeline(){
+  const track = document.getElementById('timeline-track');
+  TIMELINE.forEach(t=>{
+    const item = document.createElement('div');
+    item.className='timeline-item';
+    item.innerHTML=`
+      <div class="timeline-dot" style="background:${t.color}"></div>
+      <div class="timeline-date">${t.date}</div>
+      <div class="timeline-card">
+        <div class="timeline-name" style="color:${t.color}">${t.name}</div>
+        <div class="timeline-school">${t.school}</div>
+        <div class="timeline-idea">${t.idea}</div>
+        ${t.tag?`<div><span class="timeline-tag" style="color:${t.color};border-color:${t.color}40;background:${t.color}15">${t.tag}</span></div>`:''}
+        <div class="timeline-example">💡 ${t.example}</div>
+      </div>`;
+    track.appendChild(item);
+  });
+  // drag scroll
+  const scroll = document.getElementById('timeline-scroll');
+  let isDown=false,startX,scrollLeft;
+  scroll.addEventListener('mousedown',e=>{isDown=true;startX=e.pageX-scroll.offsetLeft;scrollLeft=scroll.scrollLeft});
+  scroll.addEventListener('mouseleave',()=>isDown=false);
+  scroll.addEventListener('mouseup',()=>isDown=false);
+  scroll.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-scroll.offsetLeft;scroll.scrollLeft=scrollLeft-(x-startX)*1.5});
+}
+
+// ====================== GLOSSARY ======================
+function buildGlossary(){
+  const grid = document.getElementById('terms-grid');
+  renderTerms('all','');
+  document.querySelectorAll('.theme-tab').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.theme-tab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      renderTerms(tab.dataset.theme, document.getElementById('search-input').value);
+    });
+  });
+  document.getElementById('search-input').addEventListener('input',e=>{
+    const active = document.querySelector('.theme-tab.active');
+    renderTerms(active?active.dataset.theme:'all', e.target.value);
+  });
+}
+function renderTerms(theme, query){
+  const grid = document.getElementById('terms-grid');
+  const q = query.toLowerCase();
+  let filtered = TERMS.filter(t=>{
+    const matchTheme = theme==='all' || t.cat===theme;
+    const matchQ = !q || t.ru.toLowerCase().includes(q) || t.en.toLowerCase().includes(q) || t.short.toLowerCase().includes(q);
+    return matchTheme && matchQ;
+  });
+  grid.innerHTML='';
+  filtered.forEach(t=>{
+    const card = document.createElement('div');
+    card.className='term-card'+(t.featured?' featured':'');
+    card.innerHTML=`
+      <div class="term-header">
+        <div>
+          <div class="term-ru">${t.ru}${t.featured?'<span class="badge featured">★ важный</span>':''}</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+          <span class="term-en">${t.en}</span>
+          <span class="term-category">${catLabel(t.cat)}</span>
+        </div>
+      </div>
+      <div class="term-short">${t.short}</div>
+      <button class="term-expand" onclick="toggleTerm(this)">→ Подробнее <span>▾</span></button>
+      <div class="term-body">
+        <div class="term-full">${t.full}</div>
+        ${t.mini_schema ? buildMiniSchema(t) : ''}
+        <div class="term-example">
+          <div class="ru">📌 ${t.example_ru}</div>
+          <div class="en">${t.example_en}</div>
+        </div>
+        ${t.analogy?`<div class="term-analogy"><b>🧠 Аналогия:</b> ${t.analogy}</div>`:''}
+        ${t.why?`<div class="term-why"><b>⚡ Почему важно:</b> ${t.why}</div>`:''}
+        <div class="term-topic" style="margin-top:0.5rem;font-size:0.7rem;color:var(--text3)">📚 ${t.topic}</div>
+      </div>`;
+    grid.appendChild(card);
+  });
+  if(!filtered.length) grid.innerHTML='<p style="color:var(--text3);padding:1rem">Ничего не найдено</p>';
+}
+function catLabel(c){
+  return {methodology:'🔬 Методология',ethics:'⚖️ Этика',media:'📡 Медиа',philosophy:'💡 Философия'}[c]||c;
+}
+function buildMiniSchema(t){
+  if(t.id===5) return `<div class="mini-schema"><div class="schema-step"><div class="schema-num">1</div><span>Находишь: мороженое↑ и утопления↑ — движутся вместе → <strong>корреляция</strong></span></div><div class="schema-step"><div class="schema-num">2</div><span>Спрашиваешь: «А мороженое прямо вызывает утопления?» → <strong>нет</strong></span></div><div class="schema-step"><div class="schema-num">3</div><span>Находишь третий фактор: жара (лето) объясняет оба явления → <strong>confounding variable</strong></span></div><div class="schema-step"><div class="schema-num">4</div><span>Вывод: корреляция ≠ причинность</span></div></div>`;
+  if(t.id===24) return `<div class="mini-schema"><div class="schema-step"><div class="schema-num">1</div><span>Собрал данные. Нет p&lt;0.05. Расстроился.</span></div><div class="schema-step"><div class="schema-num">2</div><span>Попробовал другой тест. Всё равно нет.</span></div><div class="schema-step"><div class="schema-num">3</div><span>Убрал «выбросы», добавил ковариату, поменял выборку...</span></div><div class="schema-step"><div class="schema-num">4</div><span>На 17-й попытке — p=0.048! Публикую только этот результат.</span></div><div class="schema-step"><div class="schema-num" style="background:var(--danger)">!</div><span><strong>Это и есть p-hacking.</strong> Правило: гипотезу нужно строить ДО анализа, а не после.</span></div></div>`;
+  if(t.id===33) return `<div class="mini-schema"><div class="schema-step"><div class="schema-num">1</div><span>Наблюдаешь в один момент времени: агрессивные люди смотрят агрессивный контент</span></div><div class="schema-step"><div class="schema-num">2</div><span>Гипотеза А: контент → агрессия (контент первичен)</span></div><div class="schema-step"><div class="schema-num">3</div><span>Гипотеза Б: агрессия → поиск контента (агрессия первична)</span></div><div class="schema-step"><div class="schema-num" style="background:var(--accent3)">?</div><span><strong>Оба варианта одинаково совместимы с данными</strong> → неоднозначное временное предшествование. Нужно лонгитюдное исследование!</span></div></div>`;
+  return '';
+}
+function toggleTerm(btn){
+  const body = btn.nextElementSibling;
+  const open = body.classList.toggle('open');
+  btn.querySelector('span').textContent = open ? '▴' : '▾';
+  btn.textContent = (open ? '← Свернуть ' : '→ Подробнее ');
+  btn.appendChild(Object.assign(document.createElement('span'),{textContent: open ? '▴' : '▾'}));
+}
+
+// ====================== FLASHCARDS ======================
+function initFlashcards(){
+  fcQueue = [...TERMS].sort(()=>Math.random()-0.5);
+  currentFCIdx = 0;
+  fcFlipped = false;
+  document.getElementById('fc-know').textContent=knownTerms.size;
+  document.getElementById('fc-dontknow').textContent=unknownTerms.size;
+  document.getElementById('fc-left').textContent=TERMS.length - knownTerms.size;
+  renderFC();
+}
+function renderFC(){
+  if(currentFCIdx >= fcQueue.length){
+    document.getElementById('fc-card').innerHTML=`<div class="fc-face fc-front" style="border-color:var(--accent2)"><div class="fc-hint">Прогресс</div><div class="fc-term" style="color:var(--accent2)">Отличная работа! 🎉</div><div class="fc-sub">Всё просмотрено. Нажми «Сначала»</div></div>`;
+    return;
+  }
+  const t = fcQueue[currentFCIdx];
+  document.getElementById('fc-term-front').textContent=t.ru;
+  document.getElementById('fc-en-front').textContent=t.en;
+  document.getElementById('fc-def-back').textContent=t.short;
+  document.getElementById('fc-eg-back').textContent='📌 '+t.example_ru;
+  const card = document.getElementById('fc-card');
+  card.classList.remove('flipped');
+  fcFlipped=false;
+  document.getElementById('fc-pos').textContent=`${currentFCIdx+1} / ${fcQueue.length}`;
+  document.getElementById('fc-nav-pos').textContent=`${currentFCIdx+1} из ${fcQueue.length}`;
+}
+function flipCard(){
+  const card=document.getElementById('fc-card');
+  card.classList.toggle('flipped');
+  fcFlipped=!fcFlipped;
+}
+function fcAnswer(know){
+  const t = fcQueue[currentFCIdx];
+  if(know){knownTerms.add(t.id);unknownTerms.delete(t.id);}
+  else{unknownTerms.add(t.id);knownTerms.delete(t.id);}
+  saveProgress();
+  document.getElementById('fc-know').textContent=knownTerms.size;
+  document.getElementById('fc-dontknow').textContent=unknownTerms.size;
+  document.getElementById('fc-left').textContent=TERMS.length-knownTerms.size;
+  currentFCIdx++;
+  renderFC();
+}
+function fcGo(dir){
+  currentFCIdx=Math.max(0,Math.min(fcQueue.length-1,currentFCIdx+dir));
+  renderFC();
+}
+function fcReset(){
+  knownTerms.clear();unknownTerms.clear();saveProgress();
+  showToast('Прогресс сброшен');
+  initFlashcards();
+}
+
+// ====================== MATCH GAME ======================
+function initMatch(){
+  const shuffled=[...TERMS].sort(()=>Math.random()-0.5).slice(0,8);
+  matchPairs=shuffled;
+  matchSelected=null;
+  document.getElementById('match-score').textContent=0;
+  document.getElementById('match-total').textContent=shuffled.length;
+  const terms=document.getElementById('match-terms');
+  const defs=document.getElementById('match-defs');
+  const termItems=[...shuffled].sort(()=>Math.random()-0.5);
+  const defItems=[...shuffled].sort(()=>Math.random()-0.5);
+  terms.innerHTML='';defs.innerHTML='';
+  termItems.forEach(t=>{
+    const el=document.createElement('div');
+    el.className='match-item';el.dataset.id=t.id;el.dataset.side='term';
+    el.textContent=t.ru;
+    el.onclick=()=>matchClick(el,t.id,'term');
+    terms.appendChild(el);
+  });
+  defItems.forEach(t=>{
+    const el=document.createElement('div');
+    el.className='match-item';el.dataset.id=t.id;el.dataset.side='def';
+    el.textContent=t.short.slice(0,80)+(t.short.length>80?'…':'');
+    el.onclick=()=>matchClick(el,t.id,'def');
+    defs.appendChild(el);
+  });
+}
+function matchClick(el, id, side){
+  if(el.classList.contains('matched'))return;
+  if(!matchSelected){
+    el.classList.add('selected');
+    matchSelected={el,id,side};
+    return;
+  }
+  if(matchSelected.side===side){
+    matchSelected.el.classList.remove('selected');
+    el.classList.add('selected');
+    matchSelected={el,id,side};
+    return;
+  }
+  if(matchSelected.id===id){
+    el.classList.add('matched');matchSelected.el.classList.add('matched');
+    el.classList.remove('selected');
+    const score=document.getElementById('match-score');
+    const newScore=parseInt(score.textContent)+1;
+    score.textContent=newScore;
+    if(newScore>=matchPairs.length) setTimeout(()=>{showToast('🎉 Все совпадения найдены!');},300);
+    matchSelected=null;
+  } else {
+    el.classList.add('wrong');matchSelected.el.classList.add('wrong');
+    setTimeout(()=>{el.classList.remove('wrong','selected');matchSelected.el.classList.remove('wrong','selected');matchSelected=null;},600);
+  }
+}
+
+// ====================== EXAMPLE MODE ======================
+const EXAMPLES=[
+  {id:1,scenario:"Исследователь проводит эксперимент в лабораторных условиях. Все внешние факторы контролируются. Он уверен, что именно переменная X вызывает эффект Y, а не что-то постороннее.",answer:"Internal validity"},
+  {id:2,scenario:"Ты провёл опрос среди 50 студентов своего университета и хочешь распространить выводы на всю молодёжь страны. Насколько это обоснованно?",answer:"External validity"},
+  {id:3,scenario:"Каждый житель города имеет одинаковый шанс попасть в опрос — их выбирают с помощью генератора случайных чисел из реестра населения.",answer:"Probability sampling"},
+  {id:4,scenario:"Исследователь не имеет доступа к полному списку группы и берёт всех, кого удаётся найти через знакомых и рекламу.",answer:"Non-probability sampling"},
+  {id:5,scenario:"Страны с большим числом кинотеатров имеют более высокий ВВП. Значит ли это, что кинотеатры делают страну богаче?",answer:"Correlation vs causation"},
+  {id:6,scenario:"Исследователь набирает участников среди своих знакомых и студентов соседнего факультета, потому что это просто и быстро.",answer:"Convenience sample"},
+  {id:7,scenario:"Философ считает: неважно, сколько людей выиграет от лжи — обманывать всегда неправильно, потому что это противоречит нашему долгу.",answer:"Deontology vs consequentialism"},
+  {id:8,scenario:"При измерении времени просмотра ТВ одни участники ошибочно указали 2 часа вместо 3 — просто не помнят точно. Ошибки идут в обе стороны, без систематики.",answer:"Random error"},
+  {id:9,scenario:"Участников эксперимента не обманывают, но не говорят, что именно изучают — только что это «исследование медиапотребления».",answer:"Concealment vs deception"},
+  {id:10,scenario:"После эксперимента с «шокером» исследователь объяснил участникам, что тока не было и что цель была изучить послушание, а не память.",answer:"Debriefing"},
+  {id:11,scenario:"Исследователь знает имена всех интервьюируемых, но в отчёте использует псевдонимы и никому не говорит, кто что сказал.",answer:"Anonymity vs confidentiality"},
+  {id:12,scenario:"Перед началом опроса участникам выдают форму, где объясняют: о чём вопросы, как данные будут использоваться, можно ли отказаться в любой момент.",answer:"Informed consent"},
+  {id:13,scenario:"Режиссёр снял ролик с очевидным посылом «купи наш продукт». Часть зрителей воспринимает его буквально, часть критически, часть игнорирует посыл.",answer:"Encoding / Decoding"},
+  {id:14,scenario:"Исследователь изучает архивы газет за 20 лет, не контактируя с журналистами и не сообщая изданиям о своей работе.",answer:"Unobtrusive research"},
+  {id:15,scenario:"«Медиаграмотность» — что именно мы будем измерять? Исследователь определяет: «способность верно определить источник новости за 30 секунд».",answer:"Operational definition"},
+  {id:16,scenario:"Опрос показал: 62% поддерживают законопроект, с погрешностью ±4% при 95%. Значит, реальная поддержка, вероятно, от 58% до 66%.",answer:"Confidence interval"},
+  {id:17,scenario:"Чтобы найти участников закрытого сообщества ЛГБТ+-активистов в консервативном регионе, исследователь просит первого найденного участника познакомить с другими.",answer:"Snowball sampling"},
+  {id:18,scenario:"«40% россиян получают новости из Telegram» — это одно. «Telegram-каналы должны быть под государственным надзором» — совсем другое.",answer:"Positive vs normative statements"},
+  {id:19,scenario:"Раньше все смотрели один главный новостной выпуск. Теперь у каждого свой набор подкастов, Telegram-каналов и YouTube-каналов.",answer:"Audience fragmentation"},
+  {id:20,scenario:"Компания продаёт рекламодателям не просто показы, а предсказание: «с 80% вероятностью этот пользователь купит SUV в течение месяца».",answer:"Surveillance capitalism"},
+  {id:21,scenario:"Исследователь полгода изучал один конкретный ютуб-канал: его историю, аудиторию, влияние на медиапространство.",answer:"Case study"},
+  {id:22,scenario:"Антрополог несколько месяцев жил в деревне, наблюдая как местные жители смотрят телевизор и обсуждают новости за ужином.",answer:"Ethnography"},
+  {id:23,scenario:"Перед запуском нового шоу телеканал собрал 10 человек разного возраста, показал пилотный эпизод и обсудил реакции вместе с модератором.",answer:"Focus group"},
+  {id:24,scenario:"Исследователь тестировал 30 разных комбинаций переменных, пока не нашёл ту, где p<0.05, и опубликовал только её.",answer:"P-hacking"},
+  {id:25,scenario:"В опроснике о медиатревожности 10 вопросов. Вопрос 7 показывает противоположные результаты по сравнению с остальными 9 — это проблема.",answer:"Internal reliability"},
+  {id:26,scenario:"На 15-м интервью с пользователями Instagram исследователь понял: новые ответы полностью повторяют уже собранные темы. Можно остановиться.",answer:"Theoretical saturation"},
+  {id:27,scenario:"Исследователь подсчитывает, сколько раз слово «террор» встречается в заголовках новостей — без интерпретации смысла.",answer:"Manifest content"},
+  {id:28,scenario:"Социологи договорились опросить ровно 100 мужчин и 100 женщин из каждой возрастной группы, набирая их любым доступным способом.",answer:"Quota sampling"},
+  {id:29,scenario:"Зарплаты в редакции: большинство — 800€, но главред получает 5000€. Какой показатель лучше описывает «типичную» зарплату?",answer:"Mean vs median vs mode"},
+  {id:30,scenario:"Среднее время просмотра YouTube — 3 часа. Но у одних студентов — 30 минут, у других — 8 часов. Какой показатель описывает этот разброс?",answer:"Standard deviation"},
+  {id:31,scenario:"В эксперименте одна группа смотрит рекламу, другая — нет. Обе потом проходят опрос о намерении купить продукт.",answer:"Control group"},
+  {id:32,scenario:"Тестирование нового формата новостного приложения: ни пользователи не знают, какую версию видят, ни исследователи, работающие с ними, не знают, кто в каком варианте.",answer:"Double-blind study"},
+  {id:33,scenario:"Дети, проводящие много времени в соцсетях, чаще страдают от депрессии. Но что первично — соцсети или уже существующая депрессия?",answer:"Ambiguous temporal precedence"},
+  {id:34,scenario:"Из 1000 разосланных опросных листов вернулось 200. Те, кто не ответил, скорее всего сильно заняты или вообще не читают такие письма.",answer:"Non-response"},
+  {id:35,scenario:"Отсутствие цензуры — одно. Доступность интернета и медиаобразования для всех — другое. Оба понятия о свободе, но очень разные.",answer:"Positive vs negative freedom"},
+  {id:36,scenario:"XVII–XVIII вв: разум важнее авторитета церкви, индивид важнее традиции. Это дало основу идеям свободы слова и публичного дискурса.",answer:"The Enlightenment"},
+  {id:37,scenario:"СМИ принадлежат крупным корпорациям. По одной теории, их содержание неслучайно отражает интересы капитала — потому что экономика определяет культуру.",answer:"Historical materialism"},
+  {id:38,scenario:"Поп-музыка и блокбастеры стандартизированы и делают людей пассивными потребителями, неспособными критически мыслить — так считала Франкфуртская школа.",answer:"Critical theory"},
+  {id:39,scenario:"В офисе установили камеры. Никто не знает, смотрит ли кто-то прямо сейчас — но все ведут себя как примерные сотрудники.",answer:"Panopticon"},
+  {id:40,scenario:"Интернет позволяет мгновенно распространить информацию по всей планете, но она исчезает так же быстро. Камень хранит послание тысячи лет, но никуда не отправит.",answer:"Space-time bias in communication"},
+];
+
+function initExample(){
+  exQueue=[...EXAMPLES].sort(()=>Math.random()-0.5);
+  exIdx=0;exScore=0;
+  document.getElementById('ex-score').textContent=0;
+  document.getElementById('ex-q-total').textContent=exQueue.length;
+  buildExSelect();
+  renderExample();
+}
+function buildExSelect(){
+  const sel=document.getElementById('ex-select');
+  const allEn=TERMS.map(t=>t.en).sort();
+  sel.innerHTML='<option value="">— Выбери термин —</option>';
+  allEn.forEach(e=>{
+    const o=document.createElement('option');o.value=e;o.textContent=e;sel.appendChild(o);
+  });
+}
+function renderExample(){
+  if(exIdx>=exQueue.length){
+    document.getElementById('ex-card').innerHTML=`<div style="text-align:center;padding:2rem"><div style="font-size:2rem">🎓</div><div style="font-size:1.2rem;color:var(--accent2);margin:0.5rem 0">Готово!</div><div style="color:var(--text2)">Результат: ${exScore} / ${exQueue.length}</div></div>`;
+    return;
+  }
+  const q=exQueue[exIdx];
+  document.getElementById('ex-scenario').textContent=q.scenario;
+  document.getElementById('ex-select').value='';
+  document.getElementById('ex-q-num').textContent=exIdx+1;
+  const fb=document.getElementById('ex-feedback');
+  fb.style.display='none';fb.className='ex-feedback';
+}
+function checkExample(){
+  const q=exQueue[exIdx];
+  const sel=document.getElementById('ex-select').value;
+  if(!sel)return;
+  const fb=document.getElementById('ex-feedback');
+  if(sel===q.answer){
+    exScore++;
+    document.getElementById('ex-score').textContent=exScore;
+    fb.className='ex-feedback correct';
+    fb.textContent='✓ Верно! '+q.answer;
+    knownTerms.add(TERMS.find(t=>t.en===q.answer)?.id);
+    saveProgress();
+  } else {
+    fb.className='ex-feedback wrong';
+    fb.textContent='✗ Неверно. Правильный ответ: '+q.answer;
+  }
+  fb.style.display='block';
+  setTimeout(()=>{exIdx++;renderExample();},1800);
+}
+
+// ====================== MODES ======================
+function setMode(mode,btn){
+  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.trainer-content').forEach(c=>c.classList.remove('active'));
+  document.getElementById('mode-'+mode).classList.add('active');
+  if(mode==='flashcards') initFlashcards();
+  if(mode==='match') initMatch();
+  if(mode==='example') initExample();
+}
+
+// ====================== TOAST ======================
+function showToast(msg){
+  const t=document.createElement('div');t.className='toast';t.textContent=msg;
+  document.body.appendChild(t);
+  setTimeout(()=>{t.classList.add('hide');setTimeout(()=>t.remove(),300);},2500);
+}
+
+// ====================== INIT ======================
+document.addEventListener('DOMContentLoaded',()=>{
+  loadProgress();
+  buildTimeline();
+  buildGlossary();
+  initFlashcards();
+  initMatch();
+  initExample();
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+});
+</script>
+</body>
+</html>
